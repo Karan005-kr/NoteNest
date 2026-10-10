@@ -1,0 +1,19 @@
+# Environment variables
+.env
+backend/.env
+
+# Node
+node_modules/
+backend/node_modules/
+
+# Uploaded files
+backend/uploads/materials/*
+!backend/uploads/materials/.gitkeep
+
+# Logs
+*.log
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/

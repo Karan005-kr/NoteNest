@@ -1,0 +1,14 @@
+# OPTIONAL only. XAMPP/MySQL works without Docker.
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: studyvault
+    ports:
+      - "3306:3306"
+    volumes:
+      - studyvault_mysql:/var/lib/mysql
+
+volumes:
+  studyvault_mysql:

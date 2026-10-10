@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NoteNest University Study Material Portal" />
+  <title>NoteNest</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="brand" data-route="home" aria-label="NoteNest home">
+        <span class="brand-logo-crop" aria-hidden="true"></span>
+        <span class="brand-copy">
+          <strong><span>Note</span><em>Nest</em></strong>
+          <small>Your Academic Resource Hub</small>
+        </span>
+      </button>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="active" data-route="home">
+          <span class="nav-icon">⌂</span><span>Home</span>
+        </button>
+        <button data-route="browse">
+          <span class="nav-icon">▤</span><span>Browse Material</span>
+        </button>
+        <button data-route="search">
+          <span class="nav-icon">⌕</span><span>Search</span>
+        </button>
+        <button data-route="admin">
+          <span class="nav-icon">◇</span><span>Admin</span>
+        </button>
+      </nav>
+
+      <button class="header-login" data-route="admin">
+        <span>♙</span> Sign In
+      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="homeView" class="view active-view">
+      <div class="hero-shell">
+        <div class="container hero">
+          <div class="hero-copy">
+            <div class="hero-badge">FOR UNIVERSITY STUDENTS</div>
+
+            <h1>
+              Notes, Syllabus,<br />
+              PYQs and More
+              <span>All in One Place.</span>
+            </h1>
+
+            <p class="hero-text">
+              Find your study material by university, course, semester and subject.
+              No scattered links, no unnecessary searching.
+            </p>
+
+            <div class="hero-actions">
+              <button class="btn btn-primary" data-route="browse">
+                Browse Material <span class="arrow">→</span>
+              </button>
+              <button class="btn btn-secondary" data-route="search">
+                <span class="search-symbol">⌕</span> Search
+              </button>
+            </div>
+
+            <div class="hero-trust">
+              <span><i class="trust-dot blue"></i> Easy Access</span>
+              <span><i class="trust-dot green"></i> Organized Material</span>
+              <span><i class="trust-dot orange"></i> Student Friendly</span>
+            </div>
+          </div>
+
+          <div class="hero-art" aria-label="Study material illustration">
+            <div class="art-blob blob-one"></div>
+            <div class="art-blob blob-two"></div>
+
+            <div class="floating-card syllabus-card">
+              <div class="doc-icon blue">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 3h8l4 4v14H6z"></path>
+                  <path d="M14 3v5h5M9 12h6M9 16h6"></path>
+                </svg>
+              </div>
+              <div><strong>Syllabus</strong><span>Official course outline</span></div>
+            </div>
+
+            <div class="floating-card notes-card">
+              <div class="doc-icon green">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 3h12v18H6z"></path>
+                  <path d="M9 8h6M9 12h6M9 16h4"></path>
+                </svg>
+              </div>
+              <div><strong>Notes</strong><span>Unit-wise resources</span></div>
+            </div>
+
+            <div class="floating-card pyq-card">
+              <div class="doc-icon orange">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 3h8l4 4v14H6z"></path>
+                  <path d="M14 3v5h5M9 12h6M9 16h5"></path>
+                </svg>
+              </div>
+              <div><strong>Previous Year Papers</strong><span>Prepare from past exams</span></div>
+            </div>
+
+            <div class="floating-card subject-card-hero">
+              <div class="doc-icon purple">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M3 7l9-4 9 4-9 4z"></path>
+                  <path d="M7 10v5c2.7 2 7.3 2 10 0v-5"></path>
+                </svg>
+              </div>
+              <div><strong>Subject-wise</strong><span>Everything in one flow</span></div>
+            </div>
+
+            <div class="mini-orbit orbit-one"></div>
+            <div class="mini-orbit orbit-two"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container stats-grid" id="homeStats">
+        <article class="stat-card stat-blue">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 18V9h14v9M3 9l9-6 9 6M9 12v6M15 12v6"></path></svg>
+          </div>
+          <div><strong id="statUniversities">—</strong><span>Universities</span></div>
+          <button data-route="browse" aria-label="Browse universities">›</button>
+        </article>
+
+        <article class="stat-card stat-green">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5c3-1 5 0 8 2v13c-3-2-5-3-8-2zM20 5c-3-1-5 0-8 2v13c3-2 5-3 8-2z"></path></svg>
+          </div>
+          <div><strong id="statCourses">—</strong><span>Courses</span></div>
+          <button data-route="browse" aria-label="Browse courses">›</button>
+        </article>
+
+        <article class="stat-card stat-purple">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4-8 4-8-4zM4 12l8 4 8-4M4 17l8 4 8-4"></path></svg>
+          </div>
+          <div><strong>3</strong><span>Material Types</span></div>
+          <button data-route="browse" aria-label="Browse material types">›</button>
+        </article>
+
+        <article class="stat-card stat-orange">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM17 11l2 2 3-4"></path></svg>
+          </div>
+          <div><strong>24×7</strong><span>Student Access</span></div>
+          <button data-route="browse" aria-label="Student access">›</button>
+        </article>
+      </div>
+
+      <div class="container section-block home-how">
+        <div class="section-heading centered-heading">
+          <div>
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>From university to material in a few clicks</h2>
+          </div>
+        </div>
+
+        <div class="flow-grid">
+          <article><span>01</span><h3>University</h3><p>Select your university from the list.</p></article>
+          <article><span>02</span><h3>Course</h3><p>Choose your degree or course.</p></article>
+          <article><span>03</span><h3>Semester</h3><p>Open the semester you are studying.</p></article>
+          <article><span>04</span><h3>Subject</h3><p>Access syllabus, notes and PYQs.</p></article>
+        </div>
+      </div>
+    </section><section id="browseView" class="view">
+      <div class="container page-top">
+        <p class="eyebrow">BROWSE</p>
+        <h1>Find Study Material</h1>
+        <p>Complete each step to reach your subject resources.</p>
+      </div>
+
+      <div class="container browser-shell">
+        <div class="steps" id="browseSteps">
+          <div class="step active"><span>1</span><b>University</b></div>
+          <div class="step"><span>2</span><b>Course</b></div>
+          <div class="step"><span>3</span><b>Semester</b></div>
+          <div class="step"><span>4</span><b>Subject</b></div>
+          <div class="step"><span>5</span><b>Material</b></div>
+        </div>
+
+        <div class="selection-summary" id="selectionSummary" hidden></div>
+
+        <div class="browser-card" id="universityStep">
+          <div class="card-number">Step 1</div>
+          <h2>Select University</h2>
+          <p class="muted">Choose your university to see the courses available on NoteNest.</p>
+          <label class="field-label" for="universitySelect">University</label>
+          <select id="universitySelect" class="form-control">
+            <option value="">Loading universities...</option>
+          </select>
+          <div class="actions-right"><button class="btn btn-primary" id="universityNext" disabled>Next</button></div>
+        </div>
+
+        <div class="browser-card" id="courseStep" hidden>
+          <div class="card-number">Step 2</div>
+          <h2>Select Course</h2>
+          <p class="muted">Only courses currently mapped to the selected university are shown.</p>
+          <label class="field-label" for="courseSelect">Course / Degree</label>
+          <select id="courseSelect" class="form-control"><option value="">Select course</option></select>
+          <div class="actions-split"><button class="btn btn-secondary" data-browse-back="university">Back</button><button class="btn btn-primary" id="courseNext" disabled>Next</button></div>
+        </div>
+
+        <div class="browser-card" id="specializationStep" hidden>
+          <div class="card-number">Optional</div>
+          <h2>Select Branch / Specialization</h2>
+          <p class="muted">This step appears only when a course has branches such as CSE, ECE or Mechanical.</p>
+          <label class="field-label" for="specializationSelect">Branch / Specialization</label>
+          <select id="specializationSelect" class="form-control"><option value="">Select specialization</option></select>
+          <div class="actions-split"><button class="btn btn-secondary" data-browse-back="course">Back</button><button class="btn btn-primary" id="specializationNext" disabled>Next</button></div>
+        </div>
+
+        <div class="browser-card" id="semesterStep" hidden>
+          <div class="card-number">Step 3</div>
+          <h2>Select Semester</h2>
+          <p class="muted">Semester count is loaded automatically from the selected course.</p>
+          <label class="field-label" for="semesterSelect">Semester</label>
+          <select id="semesterSelect" class="form-control"><option value="">Select semester</option></select>
+          <div class="actions-split"><button class="btn btn-secondary" data-browse-back="course">Back</button><button class="btn btn-primary" id="semesterNext" disabled>Next</button></div>
+        </div>
+
+        <div class="browser-card" id="subjectStep" hidden>
+          <div class="card-number">Step 4</div>
+          <div class="section-heading compact"><div><h2>Select Subject</h2><p class="muted">Open a subject to view its study material.</p></div><button class="btn btn-secondary btn-small" data-browse-back="semester">Change Semester</button></div>
+          <div id="subjectList" class="subject-list"></div>
+        </div>
+
+        <div class="browser-card material-view" id="materialStep" hidden>
+          <div class="subject-header">
+            <button class="text-button" data-browse-back="subjects">← Back to Subjects</button>
+            <div><p class="eyebrow" id="subjectMeta">SUBJECT</p><h2 id="subjectTitle">Subject</h2><p id="subjectDescription" class="muted"></p></div>
+          </div>
+          <div class="material-tabs" role="tablist">
+            <button class="material-tab active" data-material-tab="syllabus">Syllabus <span id="syllabusCount">0</span></button>
+            <button class="material-tab" data-material-tab="notes">Notes <span id="notesCount">0</span></button>
+            <button class="material-tab" data-material-tab="pyq">PYQ <span id="pyqCount">0</span></button>
+          </div>
+          <div id="materialList" class="material-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="searchView" class="view">
+      <div class="container page-top">
+        <p class="eyebrow">SEARCH</p>
+        <h1>Search Academic Material</h1>
+        <p>Search by university, course, subject code, subject name or material title.</p>
+      </div>
+      <div class="container search-shell">
+        <form id="searchForm" class="search-box">
+          <input id="searchInput" class="form-control" type="search" minlength="2" placeholder="Example: DBMS, BT302, Mathematics..." required />
+          <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+        <div id="searchResults" class="search-results">
+          <div class="empty-state"><strong>Search NoteNest</strong><p>Enter at least two characters to begin.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="adminView" class="view">
+      <div class="container page-top">
+        <p class="eyebrow">ADMINISTRATION</p>
+        <h1>NoteNest Admin</h1>
+        <p>Manage academic structure and control which documents are published.</p>
+      </div>
+
+      <div class="container" id="adminLoginPanel">
+        <div class="login-card">
+          <div class="login-badge">ADMIN</div>
+          <h2>Sign in</h2>
+          <p class="muted">Use an authorized NoteNest administrator account.</p>
+          <form id="adminLoginForm">
+            <label class="field-label" for="adminEmail">Email</label>
+            <input class="form-control" id="adminEmail" type="email" value="admin@studyvault.local" autocomplete="username" required />
+            <label class="field-label" for="adminPassword">Password</label>
+            <input class="form-control" id="adminPassword" type="password" autocomplete="current-password" required />
+            <button class="btn btn-primary btn-full" type="submit">Login</button>
+          </form>
+          <p id="loginMessage" class="form-message"></p>
+        </div>
+      </div>
+
+      <div class="container admin-shell" id="adminPanel" hidden>
+        <aside class="admin-sidebar">
+          <div class="admin-user"><div class="avatar">A</div><div><strong id="adminName">Administrator</strong><small id="adminRole">ADMIN</small></div></div>
+          <button class="admin-nav active" data-admin-tab="dashboard">Dashboard</button>
+          <button class="admin-nav" data-admin-tab="upload">Add Material</button>
+          <button class="admin-nav" data-admin-tab="materials">Manage Materials</button>
+          <button class="admin-nav" data-admin-tab="subjects">Subjects</button>
+          <button class="admin-nav" data-admin-tab="structure">Academic Setup</button>
+          <button class="admin-nav logout" id="adminLogout">Logout</button>
+        </aside>
+
+        <div class="admin-content">
+          <section class="admin-tab active" id="adminDashboardTab">
+            <div class="admin-heading"><div><p class="eyebrow">OVERVIEW</p><h2>Dashboard</h2></div><button class="btn btn-secondary btn-small" id="refreshDashboard">Refresh</button></div>
+            <div class="admin-stats" id="adminStats"></div>
+            <div class="panel"><h3>Recent Materials</h3><div id="recentMaterials" class="simple-table-wrap"></div></div>
+          </section>
+
+          <section class="admin-tab" id="adminUploadTab">
+            <div class="admin-heading"><div><p class="eyebrow">MATERIAL</p><h2>Add Study Material</h2></div></div>
+            <form id="materialUploadForm" class="panel form-grid">
+              <div class="full"><div class="notice">Choose the academic location first. You can either upload a file or save an external URL/path.</div></div>
+              <div><label class="field-label">University</label><select id="uploadUniversity" class="form-control" required></select></div>
+              <div><label class="field-label">Course</label><select id="uploadCourse" class="form-control" required></select></div>
+              <div><label class="field-label">Branch (optional)</label><select id="uploadSpecialization" class="form-control"></select></div>
+              <div><label class="field-label">Semester</label><select id="uploadSemester" class="form-control" required></select></div>
+              <div class="full"><label class="field-label">Subject</label><select id="uploadSubject" class="form-control" required></select></div>
+              <div><label class="field-label">Material Type</label><select id="materialType" class="form-control" required><option value="SYLLABUS">Syllabus</option><option value="NOTES">Notes</option><option value="PYQ">Previous Year Paper</option></select></div>
+              <div><label class="field-label">Title</label><input id="materialTitle" class="form-control" required placeholder="Example: DBMS Unit 1 Notes" /></div>
+              <div id="unitField"><label class="field-label">Unit Number</label><input id="materialUnit" class="form-control" type="number" min="1" placeholder="1" /></div>
+              <div id="yearField" hidden><label class="field-label">Exam Year</label><input id="materialYear" class="form-control" type="number" min="1990" max="2100" placeholder="2025" /></div>
+              <div class="full"><label class="field-label">Description</label><textarea id="materialDescription" class="form-control" rows="3" placeholder="Optional description"></textarea></div>
+              <div class="full method-switch"><label><input type="radio" name="materialMethod" value="upload" checked /> Upload File</label><label><input type="radio" name="materialMethod" value="url" /> External URL / Path</label></div>
+              <div class="full" id="fileInputWrap"><label class="field-label">Document</label><input id="materialFile" class="form-control file-input" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx" /></div>
+              <div class="full" id="urlInputWrap" hidden><label class="field-label">File URL / Path</label><input id="materialUrl" class="form-control" placeholder="https://... or /materials/..." /></div>
+              <div class="full checkbox-row"><label><input id="materialPublished" type="checkbox" /> Publish immediately</label></div>
+              <div class="full actions-right"><button class="btn btn-primary" type="submit">Save Material</button></div>
+              <p class="full form-message" id="uploadMessage"></p>
+            </form>
+          </section>
+
+          <section class="admin-tab" id="adminMaterialsTab">
+            <div class="admin-heading"><div><p class="eyebrow">MATERIALS</p><h2>Manage Materials</h2></div><button class="btn btn-secondary btn-small" id="refreshMaterials">Refresh</button></div>
+            <div class="panel filters-row">
+              <input id="materialSearch" class="form-control" placeholder="Search material or subject" />
+              <select id="materialFilterType" class="form-control"><option value="">All types</option><option value="SYLLABUS">Syllabus</option><option value="NOTES">Notes</option><option value="PYQ">PYQ</option></select>
+              <select id="materialFilterPublished" class="form-control"><option value="">All status</option><option value="true">Published</option><option value="false">Unpublished</option></select>
+              <button class="btn btn-primary" id="applyMaterialFilters" type="button">Apply</button>
+            </div>
+            <div class="panel simple-table-wrap" id="adminMaterialsTable"></div>
+          </section>
+
+          <section class="admin-tab" id="adminSubjectsTab">
+            <div class="admin-heading"><div><p class="eyebrow">SUBJECTS</p><h2>Manage Subjects</h2></div></div>
+            <form id="subjectCreateForm" class="panel form-grid">
+              <div><label class="field-label">University</label><select id="subjectUniversity" class="form-control" required></select></div>
+              <div><label class="field-label">Course</label><select id="subjectCourse" class="form-control" required></select></div>
+              <div><label class="field-label">Branch (optional)</label><select id="subjectSpecialization" class="form-control"></select></div>
+              <div><label class="field-label">Semester</label><select id="subjectSemester" class="form-control" required></select></div>
+              <div><label class="field-label">Subject Name</label><input id="newSubjectName" class="form-control" required /></div>
+              <div><label class="field-label">Subject Code</label><input id="newSubjectCode" class="form-control" required /></div>
+              <div class="full"><label class="field-label">Description</label><textarea id="newSubjectDescription" class="form-control" rows="2"></textarea></div>
+              <div class="full actions-right"><button class="btn btn-primary" type="submit">Add Subject</button></div>
+              <p class="full form-message" id="subjectMessage"></p>
+            </form>
+            <div class="panel"><h3>Subjects in selected semester</h3><div id="adminSubjectList" class="subject-list admin-subject-list"></div></div>
+          </section>
+
+          <section class="admin-tab" id="adminStructureTab">
+            <div class="admin-heading"><div><p class="eyebrow">STRUCTURE</p><h2>Academic Setup</h2></div></div>
+            <div class="setup-grid">
+              <form id="universityCreateForm" class="panel compact-form"><h3>Add University</h3><label class="field-label">Name</label><input id="newUniversityName" class="form-control" required /><label class="field-label">Short Name</label><input id="newUniversityShort" class="form-control" required /><label class="field-label">Location</label><input id="newUniversityLocation" class="form-control" /><button class="btn btn-primary" type="submit">Add University</button><p class="form-message" id="universityMessage"></p></form>
+              <form id="courseCreateForm" class="panel compact-form"><h3>Add Course</h3><label class="field-label">Full Name</label><input id="newCourseName" class="form-control" required /><label class="field-label">Short Name</label><input id="newCourseShort" class="form-control" required /><label class="field-label">Default Semesters</label><input id="newCourseSemesters" class="form-control" type="number" min="1" value="8" required /><button class="btn btn-primary" type="submit">Add Course</button><p class="form-message" id="courseMessage"></p></form>
+              <form id="mappingCreateForm" class="panel compact-form"><h3>Map Course to University</h3><label class="field-label">University</label><select id="mapUniversity" class="form-control" required></select><label class="field-label">Course</label><select id="mapCourse" class="form-control" required></select><label class="field-label">Total Semesters</label><input id="mapSemesters" class="form-control" type="number" min="1" value="8" required /><button class="btn btn-primary" type="submit">Create Mapping</button><p class="form-message" id="mappingMessage"></p></form>
+              <form id="specializationCreateForm" class="panel compact-form"><h3>Add Branch / Specialization</h3><label class="field-label">University</label><select id="branchUniversity" class="form-control" required></select><label class="field-label">Course</label><select id="branchCourse" class="form-control" required></select><label class="field-label">Branch Name</label><input id="branchName" class="form-control" placeholder="Computer Science and Engineering" required /><label class="field-label">Short Name</label><input id="branchShort" class="form-control" placeholder="CSE" required /><button class="btn btn-primary" type="submit">Add Branch</button><p class="form-message" id="branchMessage"></p></form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner"><div><strong>NoteNest</strong><p>Your academic resources, organized.</p></div><div><span>Syllabus</span><span>Notes</span><span>PYQ</span></div></div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
